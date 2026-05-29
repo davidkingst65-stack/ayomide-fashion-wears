@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayomide Fashion Wears</title>
+    <style>
+        /* Base Layout Rules */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Black Header and Logo */
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            fill: #ffffff;
+        }
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Main Layout Elements */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 5px;
+        }
+
+        /* Four Image Grid Section */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .product-card {
+            border: 1px solid #eeeeee;
+            padding: 15px;
+            text-align: center;
+            background: #ffffff;
+        }
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #888888;
+        }
+        .price {
+            font-weight: bold;
+            color: #e60000;
+            margin: 10px 0;
+        }
+
+        /* Interactive Action Buttons */
+        .btn {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background-color: #333333;
+        }
+
+        /* Promo Video Section */
+        .video-section {
+            margin-bottom: 60px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #f0f0f0;
+        }
+        .video-wrapper iframe, 
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Shopping Cart Component */
+        .cart-section {
+            background: #f9f9f9;
+            padding: 30px;
+            border: 1px solid #dddddd;
+            margin-bottom: 40px;
+        }
+        .cart-status {
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Secure Payment Processing Checkout Form */
+        .payment-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-top: 2px dashed #000000;
+        }
+        .payment-options {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .payment-method {
+            border: 1px solid #ccc;
+            padding: 15px;
+            flex: 1;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .payment-method input {
+            margin-right: 10px;
+        }
+
+        /* Footer Element */
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Black Header with Custom SVG Dress Logo -->
+    <header>
+        <div class="logo-container">
+            <!-- Inline SVG Dress Icon Logo -->
+            <svg class="logo-icon" viewBox="0 0 24 24">
+                <path d="M12,2L9,7V9H15V7L12,2M9,10L4,22H20L15,10H9Z"/>
+            </svg>
+            <span class="brand-name">AYOMIDE FASHION WEARS</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Four Image Product Section -->
+        <h2>New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">Product Image 1</div>
+                <h3>Ankara Gown</h3>
+                <p class="price">₦25,000</p>
+                <button class="btn" onclick="addToCart('Ankara Gown', 25000)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Product Image 2</div>
+                <h3>Luxury Suit</h3>
+                <p class="price">₦45,000</p>
+                <button class="btn" onclick="addToCart('Luxury Suit', 45000)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Product Image 3</div>
+                <h3>Designer Top</h3>
+                <p class="price">₦15,000</p>
+                <button class="btn" onclick="addToCart('Designer Top', 15000)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Product Image 4</div>
+                <h3>Casual Dress</h3>
+                <p class="price">₦20,000</p>
+                <button class="btn" onclick="addToCart('Casual Dress', 20000)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Video Feature Showcase Section -->
+        <h2>Fashion Showcase Video</h2>
+        <div class="video-section">
+            <div class="video-wrapper">
+                <!-- Replace src link with your actual product video file link -->
+                <iframe src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Order Workflow & Gateway Interface -->
+        <h2>Your Checkout</h2>
+        <div class="cart-section">
+            <p id="cart-status" class="cart-status">Your cart is empty. Please add items to your cart first before ordering.</p>
+            <div id="cart-details"></div>
+            <button id="order-btn" class="btn" style="display:none;" onclick="showPaymentOptions()">Proceed to Order</button>
+
+            <!-- Secure Processing Block Layer -->
+            <div id="payment-box" class="payment-box">
+                <h3>Select Your Payment Gateway</h3>
+                <div class="payment-options">
+                    <label class="payment-method">
+                        <input type="radio" name="gateway" value="OPay" checked> OPay Wallet
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="gateway" value="Mastercard"> Mastercard / Visa Card
+                    </label>
+                </div>
+                <button class="btn" style="background-color: #28a745;" onclick="executePayment()">Confirm & Pay Now</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 2026 Copyright Footer -->
+    <footer>
+        <p>&copy; 2026 Ayomide Fashion Wears. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive Cart Logic & Merchant Configuration Area -->
+    <script>
+        // PRIVATE MERCHANT ACCOUNT CONFIGURATION
+        // Replace these placeholder strings securely with your operational live API merchant keys or gateway tokens.
+        const MERCHANT_ACCOUNT_DETAILS = {
+            opayMerchantId: "OPAY_MERCHANT_ID_PLACEHOLDER",
+            mastercardPublicKey: "PK_LIVE_MASTERCARD_PLACEHOLDER",
+            payoutAccountNumber: "0123456789" 
+        };
+
+        let currentCart = null;
+
+        // Enforce Workflow: Customer must hit 'Add to Cart' first
+        function addToCart(itemName, itemPrice) {
+            currentCart = {
+                name: itemName,
+                price: itemPrice
+            };
+            
+            document.getElementById('cart-status').innerText = `Successfully added to cart! Ready to process order.`;
+            document.getElementById('cart-details').innerHTML = `<p><strong>Selected Item:</strong> ${itemName} - ₦${itemPrice.toLocaleString()}</p><br>`;
+            document.getElementById('order-btn').style.display = 'block';
+            document.getElementById('payment-box').style.display = 'none';
+        }
+
+        // Show Gateway interface after clicking Order
+        function showPaymentOptions() {
+            document.getElementById('payment-box').style.display = 'block';
+        }
+
+        // Trigger secure transactional deposit routing
+        function executePayment() {
+            const selectedGateway = document.querySelector('input[name="gateway"]:checked').value;
+            
+            // In live deployment, replace this alert logic block with an HTTPS router redirect payload
+            alert(`Processing ₦${currentCart.price.toLocaleString()} payment securely via ${selectedGateway}...\nFunds are being routed directly to merchant credentials under Account: ${MERCHANT_ACCOUNT_DETAILS.payoutAccountNumber}`);
+            
+            // Simulating a successful transactional settlement callback loop
+            alert("Payment Successful! Thank you for buying from Ayomide Fashion Wears.");
+            
+            // Reset state parameters post-transaction
+            currentCart = null;
