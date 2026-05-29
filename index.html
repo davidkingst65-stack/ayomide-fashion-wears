@@ -197,7 +197,7 @@
                 <button class="btn" onclick="addToCart('Luxury Suit', 8000)">Add to Cart</button>
             </div>
             <div class="product-card">
-                <img src="image/evening.jpg.png">
+                <img src="image/evening..jpg.png">
                 <h3>Designer </h3>
                 <p class="price">10,000</p>
                 <button class="btn" onclick="addToCart('Designer Top', 10000)">Add to Cart</button>
@@ -214,8 +214,12 @@
         <h2>Fashion Showcase Video</h2>
         <div class="video-section">
             <div class="video-wrapper">
-                <!-- Replace src link with your actual product video file link -->
-                <img src="source/showcase.mp4.mp4 allowfullscreen">
+            <video controls width="100%">
+                <source src="source/showcase.mp4.mp4 "
+                type="video/mp4">
+                    Your broswer does not support the video
+                tag.
+            </video>
             </div>
         </div>
 
